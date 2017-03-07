@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="main.css" rel="stylesheet" type="text/css"/>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  </head>
+  <body>
+    <!--Sign in registration form-->
+    <div id="popupbox1"> 
+      <form name="login" action="" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" placeholder="Email" value="">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" placeholder="Password" value="">
+        </div>
+        <center><a class="btn btn-default btn-xs" type="submit" name="submit1" value="Sign In" id="finishSignIn" href="javascript:login('hide');">Sign In</a></center>
+        
+      </form>
+    <br />
+    <center><a href="javascript:login('hide');">close</a></center> 
+    </div> 
+    <!--New User registration form-->
+    <div id="popupbox2"> 
+      <form name="login" action="" method="post">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" value="">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" value="">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">First Name</label>
+          <input type="firstName" class="form-control" id="exampleInputPassword1" placeholder="First Name" value="">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Last Name</label>
+          <input type="lastName" class="form-control" id="exampleInputPassword1" placeholder="Last Name" value="">
+        </div>
+        <center><a class="btn btn-default btn-xs" type="submit" name="submit2" value="Register" id="finishRegister" href="javascript:register('hide');">Register</a></center>
+      </form>
+    <br />
+    <center><a href="javascript:register('hide');">close</a></center> 
+    </div> 
+    <!--Navigation Bar-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">App Task</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a id="newUserButton" href= "javascript:register('show'); javascript:login('hide');"><span class="glyphicon glyphicon-user"></span> New User</a></li>
+            <li><a id="signInButton" href= "javascript:login('show'); javascript:register('hide');"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>  
+            <li><a id="signOutButton" class="hide" href="#"><span class="glyphicon glyphicon-log-out"></span> Sign out</a></li>  
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--Map-->
+    <div id="map"></div>
+    <!--Add/Remove region buttons-->
+    <div class="toggleRegions">
+        <input type="button" value="Add Regions" class="btn btn-primary btn-xs" id="region-on" >
+        <input type="button" value="Remove Regions" class="btn btn-default btn-xs" id="region-off" >
+    </div>
+    
+    <script src="main.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA0syc-XinRVabD2Mta4h74b1mwCVA-t3M&callback=initMap"
+    async defer></script>
+    
+    <script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyDLn_NOCXSeQNkFP60yjd6T0l2puITtt-U",
+        authDomain: "application-task-4e8fe.firebaseapp.com",
+        databaseURL: "https://application-task-4e8fe.firebaseio.com",
+        storageBucket: "application-task-4e8fe.appspot.com",
+        messagingSenderId: "642350060913"
+      };
+      firebase.initializeApp(config);
+    </script>
+    
+  </body>
+</html>
